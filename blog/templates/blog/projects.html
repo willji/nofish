@@ -1,0 +1,8 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% for project in object_list %}
+<h3><a href={{ project.github }}>{{ project.name }}</a></h3>
+<p>{{ project.body }}</p>
+{% endfor %}
+{% endblock %}

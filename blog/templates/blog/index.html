@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h2>Writings</h2>
+{% for article in object_list %}
+    <ul id="articles">
+                <li class="article">
+                    <div class="meta">{{ article.modified_time | date:"Y年m月j日" }}</div>
+                    <a class="title" href="{% url 'blog:blog' article.pk %}">
+                        {{ article.title }}
+                    </a>
+                </li>
+    </ul>
+{% endfor %}
+{% endblock %}

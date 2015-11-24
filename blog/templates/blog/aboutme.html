@@ -1,0 +1,37 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+{% for aboutme in object_list %}
+<div class="constraint">
+    <h1 class="entry-title">AboutMe</h1>
+<p>TAG:</p>
+<div class="codehilite"><pre>{{ aboutme.tag }}
+</pre></div>
+<p>技能体系</p>
+<div class="codehilite"><pre>{{ aboutme.skill }}
+</pre></div>
+<p>我的</p>
+<ul>
+<li>
+<p><a href="{{ aboutme.github }}">github</a></p>
+</li>
+<li>
+<p><a href="{{ aboutme.blog }}">blog</a></p>
+</li>
+</ul>
+<p>联系方式</p>
+<ul>
+<li>邮箱: {{ aboutme.mail }}</li>
+</ul>
+<p>当前状态:</p>
+<div class="codehilite"><pre>{{ aboutme.status }}
+</pre></div>
+<p>目标:</p>
+<div class="codehilite"><pre>{{ aboutme.goal }}
+</pre></div>
+<hr/>
+<p>{{ aboutme.motto }}</p>
+<hr/>
+<br />
+{% endfor %}
+{% endblock %}
