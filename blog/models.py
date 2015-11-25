@@ -37,7 +37,7 @@ class Blog(models.Model):
     categorie = models.ForeignKey(Categorie)
     
     class Meta:
-        ordering = ['-modified_time']
+        ordering = ['-created_time']
 
     def __unicode__(self):
         return self.title
