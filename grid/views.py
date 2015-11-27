@@ -4,6 +4,7 @@ from .forms import GridForm
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+from .tasks import add
 
 @csrf_exempt  
 def Grid(request):
@@ -42,3 +43,9 @@ def Grid(request):
     else:
         form = GridForm()
         return render(request, 'grid/grid.html', {'form': form}) 
+
+@csrf_exempt  
+def Add(request):
+    a = request.GET.get('first')
+    b = request.GET.get('second')
+
