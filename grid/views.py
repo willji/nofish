@@ -17,7 +17,7 @@ def grid(request):
             stop_price = float(cd.get('stop_price'))
             interval = float(cd.get('interval'))
             increment = float(cd.get('increment'))
-            return grid_calculate(total_money, start_price, stop_price, interval, increment)
+            return grid_calculate.delay(total_money, start_price, stop_price, interval, increment).get()
     else:
         form = GridForm()
         return render(request, 'grid/grid.html', {'form': form}) 
